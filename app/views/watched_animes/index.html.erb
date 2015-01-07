@@ -1,0 +1,27 @@
+<h1>Listing watched_animes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Anime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @watched_animes.each do |watched_anime| %>
+      <tr>
+        <td><%= watched_anime.user[:email] %></td>
+        <td><%= watched_anime.anime[:name] %></td>
+        <td><%= link_to 'Show', watched_anime %></td>
+        <td><%= link_to 'Edit', edit_watched_anime_path(watched_anime) %></td>
+        <td><%= link_to 'Destroy', watched_anime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Watched anime', new_watched_anime_path %>

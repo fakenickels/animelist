@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @watched_anime.user[:email] %>
+</p>
+
+<p>
+  <strong>Anime:</strong>
+  <%= @watched_anime.anime[:name] %>
+</p>
+
+<%= link_to 'Edit', edit_watched_anime_path(@watched_anime) %> |
+<%= link_to 'Back', watched_animes_path %>

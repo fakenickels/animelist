@@ -1,0 +1,21 @@
+<%= form_for(@watched_anime) do |f| %>
+  <% if @watched_anime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@watched_anime.errors.count, "error") %> prohibited this watched_anime from being saved:</h2>
+
+      <ul>
+      <% @watched_anime.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :anime_id %><br>
+    <%= f.collection_select(:anime_id, Anime.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
