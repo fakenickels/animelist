@@ -14,6 +14,7 @@
   <tbody>
     <% @animes.each do |anime| %>
       <tr>
+        <td><%= image_tag anime.image.url %></td>
         <td><%= anime.name %></td>
         <td><%= anime.description %></td>
         <td><%= anime.episodes %></td>
