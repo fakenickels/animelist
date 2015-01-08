@@ -7,7 +7,7 @@
 		<p class="muted lead"><%= @anime.episodes %> episódio(s)</p>
 		<p><%= @anime.description %></p>
 		<p>
-			<%= link_to 'Editar', edit_anime_path(@anime), class: 'btn btn-primary' %>
+			<%= link_to 'Editar', edit_anime_path(@anime), class: 'btn btn-primary' if user_signed_in? %>
 		</p>
 	</div>
 </div>
