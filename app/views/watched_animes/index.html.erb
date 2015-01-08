@@ -1,19 +1,18 @@
-<h1>Animes que já assisti</h1>
+<h1 class="page-header">Animes que já assisti</h1>
 
-<div class="row">
-  <% @watched_animes.each do |wa| %>
-    <div class="col-sm-6 col-md-4">
+<div class="row animes-listening">
+  <% @watched_animes.each do |wa| anime = wa.anime  %>
+    <div class="col-sm-6 col-md-3 animes" data-toggle="tooltip" data-placement="left" title="<%= anime.name %>">
       <div class="thumbnail">
-      <%= image_tag wa.anime.image.url %>
+      <%= content_tag :div, '', class: 'anime-image', style: ("background-image:url(#{anime.image.url})")  %>
       <div class="caption">
-        <h3><%= wa.anime.name %></h3>
-        <p><%= wa.anime.description[0..100] %></p>
-        <p>
-          <%= link_to "Ver mais", anime_path(wa.anime), class: 'btn btn-primary' %>
-        </p>
+        <h3><%= link_to anime.name, anime %></h3>
       </div>
     </div>
     </div>
+  <% end %>
+  <% if @watched_animes.empty? %>
+    <h2 class="page-header">Nenhum anime cadastrado ainda :(</h2>
   <% end %>
 </div>
 

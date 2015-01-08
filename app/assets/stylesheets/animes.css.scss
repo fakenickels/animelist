@@ -1,3 +1,25 @@
 // Place all the styles related to the animes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.animes-listening {
+	.animes {
+		.thumbnail {
+			text-align: center;
+
+			.anime-image {		
+				width: 100%;
+				height: 300px;
+				margin: 0;
+				background-size: cover;
+				background-position: center;
+			}
+
+			h3 {
+				font-family: Raleway, sans-serif;
+				font-weight: 200;
+				a { text-decoration: none; color: #181E3C; }
+			}
+		}
+	}
+}

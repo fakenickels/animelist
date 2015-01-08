@@ -1,13 +1,10 @@
-<div class="row">
+<div class="row animes-listening">
   <% @animes.each do |anime| %>
-    <div class="col-sm-6 col-md-3" data-toggle="tooltip" data-placement="left" title="<%= anime.name %>">
+    <div class="col-sm-6 col-md-3 animes" data-toggle="tooltip" data-placement="left" title="<%= anime.name %>">
       <div class="thumbnail">
-      <%= link_to (image_tag anime.image.url, class: 'img-responsive', alt: anime.name), anime %>
+      <%= content_tag :div, '', class: 'anime-image', style: ("background-image:url(#{anime.image.url})")  %>
       <div class="caption">
-<!--         <p><%= anime.description[0..100] %></p>
-        <p>
-          <%= link_to "Ver mais", anime_path(anime), class: 'btn btn-primary' %>
-        </p> -->
+        <h3><%= link_to anime.name, anime %></h3>
       </div>
     </div>
     </div>
