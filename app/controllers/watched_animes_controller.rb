@@ -24,12 +24,15 @@ class WatchedAnimesController < ApplicationController
   end
 
   def create
-    if current_user.watched_animes.where(anime_id: watched_anime_params[:anime_id]).empty?
-      @watched_anime = current_user.watched_animes.build(watched_anime_params)
-      @watched_anime.save
-      respond_with(@watched_anime)
-    else
-      respond_with(400)
+    respond_to do |format|
+      if current_user.watched_animes.where(anime_id: watched_anime_params[:anime_id]).empty?
+        @watched_anime = current_user.watched_animes.build(watched_anime_params)
+        @watched_anime.save
+        
+        format.html { redirect_to watched_animes_path, notice: "Anime adicionado a lista com sucesso" }
+      else
+        format.html { redirect_to watched_animes_path, notice: "Este anime já está adicionado." }
+      end
     end
   end
 
