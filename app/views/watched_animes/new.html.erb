@@ -1,5 +1,8 @@
-<h1>New watched_anime</h1>
+<h1>Adicionar novo anime a minha lista</h1>
 
 <%= render 'form' %>
+<hr>
+<p>
+	<%= link_to 'Seu anime não está listado?', new_anime_path, class: 'btn btn-success' %>
+</p>
 
-<%= link_to 'Back', watched_animes_path %>

@@ -1,0 +1,14 @@
+.header-banner {
+	background-image: url(/assets/afro.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 400px;
+	margin-bottom: 0 !important;
+	
+	h1, p {
+		color: #fff !important;
+		text-shadow: 0 0 2px #000;
+		font-family: Varela Round;
+		text-transform: lowercase;
+	}
+}

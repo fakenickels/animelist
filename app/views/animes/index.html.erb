@@ -1,32 +1,18 @@
-<h1>Listing animes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Episodes</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @animes.each do |anime| %>
-      <tr>
-        <td><%= image_tag anime.image.url %></td>
-        <td><%= anime.name %></td>
-        <td><%= anime.description %></td>
-        <td><%= anime.episodes %></td>
-        <td><%= anime.rating %></td>
-        <td><%= link_to 'Show', anime %></td>
-        <td><%= link_to 'Edit', edit_anime_path(anime) %></td>
-        <td><%= link_to 'Destroy', anime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Anime', new_anime_path %>
+<div class="row">
+  <% @animes.each do |anime| %>
+    <div class="col-sm-6 col-md-3" data-toggle="tooltip" data-placement="left" title="<%= anime.name %>">
+      <div class="thumbnail">
+      <%= link_to (image_tag anime.image.url, class: 'img-responsive', alt: anime.name), anime %>
+      <div class="caption">
+<!--         <p><%= anime.description[0..100] %></p>
+        <p>
+          <%= link_to "Ver mais", anime_path(anime), class: 'btn btn-primary' %>
+        </p> -->
+      </div>
+    </div>
+    </div>
+  <% end %>
+  <% if @animes.empty? %>
+    <h2 class="page-header">Nenhum anime cadastrado ainda :(</h2>
+  <% end %>
+</div>

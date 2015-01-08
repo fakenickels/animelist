@@ -1,26 +1,14 @@
-<p>
-	<%= image_tag @anime.image.url %>
-</p>
+<div class="row">
+	<div class="col-md-4">
+		<%= image_tag @anime.image.url %>
+	</div>
+	<div class="col-md-8">
+		<h2><%= @anime.name %></h2>
+		<p class="muted lead"><%= @anime.episodes %> episódio(s)</p>
+		<p><%= @anime.description %></p>
+		<p>
+			<%= link_to 'Editar', edit_anime_path(@anime), class: 'btn btn-primary' %>
+		</p>
+	</div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @anime.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @anime.description %>
-</p>
-
-<p>
-  <strong>Episodes:</strong>
-  <%= @anime.episodes %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @anime.rating %>
-</p>
-
-<%= link_to 'Edit', edit_anime_path(@anime) %> |
-<%= link_to 'Back', animes_path %>
