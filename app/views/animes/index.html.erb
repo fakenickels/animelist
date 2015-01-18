@@ -1,7 +1,6 @@
 <% @animes.each_slice(4) do |group| %>
-  <% group.each do |anime| %>
-
   <div class="row animes-listening">
+    <% group.each do |anime| %>
       <div class="col-sm-12 col-md-3 animes" data-toggle="tooltip" data-placement="left" title="<%= anime.name %>">
         <div class="thumbnail">
         <%= content_tag :div, '', class: 'anime-image', style: ("background-image:url(#{anime.image.url})")  %>
@@ -11,8 +10,9 @@
       </div>
       </div>
     <% end %>
+
     <% if @animes.empty? %>
       <h2 class="page-header">Nenhum anime cadastrado ainda :(</h2>
+    <% end %>
   </div>
-  <% end %>
 <% end %>
